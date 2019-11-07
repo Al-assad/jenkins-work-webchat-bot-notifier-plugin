@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
+         xmlns:f="/lib/form">
+    <f:entry title="构建环境名称" field="topicName">
+        <f:textbox name="topicName"/>
+    </f:entry>
+    <f:advanced title="自定义配置">
+        <f:entry title="Webhook地址" field="webhookUrl">
+            <f:textbox name="webhookUrl"/>
+        </f:entry>
+        <f:entry title="通知用户分组名" field="memberGroup">
+            <f:textbox name="memberGroup"/>
+        </f:entry>
+        <f:entry title="通知UserID" field="memberId">
+            <f:textbox name="memberId"/>
+        </f:entry>
+        <f:entry title="通知手机号码" field="memberMobile">
+            <f:textbox name="memberMobile"/>
+        </f:entry>
+    </f:advanced>
+</j:jelly>

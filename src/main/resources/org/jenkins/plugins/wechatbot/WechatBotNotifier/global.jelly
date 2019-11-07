@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
+         xmlns:f="/lib/form">
+    <f:section title="企业微信-群机器人通知配置">
+
+        <f:entry title="默认Webhook地址" field="webhookUrl">
+            <f:textbox name="webhookUrl" value="${descriptor.getWebhookUrl()}"/>
+        </f:entry>
+        <f:entry title="默认通知UserID" field="memberId">
+            <f:textbox name="memberId" value="${descriptor.getMemberId()}"/>
+        </f:entry>
+        <f:entry title="默认通知手机号码" field="memberMobile">
+            <f:textbox name="memberMobile" value="${descriptor.getMemberMobile()}"/>
+        </f:entry>
+
+        <f:optionalBlock title="通知构建发起者" field="notifyCauseUser" checked="${descriptor.isNotifyCauseUser()}">
+            <f:entry title="Case UserId 企业微信手机号映射" field="userIdMobileMap">
+                <f:textarea rows="3" name="userIdMobileMap" value="${descriptor.getUserIdMobileMapStr()}"/>
+            </f:entry>
+            <f:entry title="Case UserName 企业微信手机号映射" field="userNameMobileMap">
+                <f:textarea rows="3" name="userNameMobileMap" value="${descriptor.getUserNameMobileMapStr()}"/>
+            </f:entry>
+        </f:optionalBlock>
+
+        <f:optionalBlock title="自定义通知构建阶段@人" field="customNotify" checked="${descriptor.isCustomNotify()}">
+            <f:entry title="开始构建时通知" field="notifyStart">
+                <f:checkbox name="notifyStart" value="${descriptor.isNotifyStart()}"/>
+            </f:entry>
+            <f:entry title="构建成功时通知" field="notifySuccess">
+                <f:checkbox name="notifySuccess" value="${descriptor.isNotifySuccess()}"/>
+            </f:entry>
+            <f:entry title="构建失败时通知" field="notifyFail">
+                <f:checkbox name="notifyFail" value="${descriptor.isNotifyFail()}"/>
+            </f:entry>
+        </f:optionalBlock>
+
+        <f:entry title="暂时关闭所有通知" field="closeAll">
+            <f:checkbox name="closeAll" value="${descriptor.isCloseAll()}"/>
+        </f:entry>
+
+        <f:advanced title="用户通知分组配置">
+            <f:entry title="通知UserID分组" field="memberIdGroup">
+                <f:textarea rows="3" name="memberIdGroup" value="${descriptor.getMemberIdGroupStr()}"/>
+            </f:entry>
+            <f:entry title="通知手机号码分组" field="memberMobileGroup">
+                <f:textarea rows="3" name="memberMobileGroup" value="${descriptor.getMemberIdGroupStr()}"/>
+            </f:entry>
+        </f:advanced>
+
+    </f:section>
+</j:jelly>
